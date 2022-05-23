@@ -8,7 +8,10 @@
 			"program": "${workspaceRoot}/build/jnglexample",
 			"args": [],
 			"cwd": "${workspaceRoot}",
-			"preLaunchTask": "build"
+			"preLaunchTask": "build",
+			"env": {
+				"ASAN_OPTIONS": "detect_leaks=0"
+			},
 		},
 		{
 			"name": "mygame (C/C++ extension)",
