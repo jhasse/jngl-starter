@@ -47,7 +47,6 @@ web:
     - emcmake cmake -DJNGL_VIDEO=0 -DCMAKE_BUILD_TYPE=Release .. && make jnglexample
 
     - rm -r CMakeFiles CMakeCache.txt Makefile _deps cmake_install.cmake include subprojects
-    - mv ../index.html index.html
   artifacts:
     paths:
       - build/
