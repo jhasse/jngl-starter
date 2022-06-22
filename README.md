@@ -1,11 +1,11 @@
 # JNGL Example Project
 
-Starts a JNGL Game without any logic and just renders a black screen.
+Starts a JNGL game without any logic and just renders a black screen.
 
 ## Getting Started
 
 Clone this folder and open it in VS Code. If it's the first time you develop C++/JNGL you have to install the dependencies documented in the JNGL [GitHub page](https://github.com/jhasse/jngl).
-After setting up everything you only have to press F5 and the project will be built and started.
+After setting up everything you only have to press <kbd>F5</kbd> and the project will be built and started.
 
 Happy developing!
 
@@ -26,4 +26,4 @@ Steps to build your first JNGL Game:
 - In the `build` folder there is now a `jnglexample.sln` which you can open with Visual Studio.
 - In the solution explorer in Visual Studio you have to right click `jnglexample` and select `Set as Startup Project`.
 - Now you can press Debug or <kbd>F5</kbd> to run your project.
-- Have fun
+- Have fun!
