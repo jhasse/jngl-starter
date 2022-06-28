@@ -1,7 +1,6 @@
 #include "Game.hpp"
 
 #include "engine/Fade.hpp"
-#include "Control.hpp"
 #include "Options.hpp"
 #include "GameObject.hpp"
 
