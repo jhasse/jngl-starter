@@ -13,7 +13,7 @@ Happy developing!
 ## Windows Development with Visual Studio
 
 For development on Windows you need to install:
-- [Visual Studio](https://visualstudio.microsoft.com/de/downloads/)
+- [Visual Studio](https://visualstudio.microsoft.com/de/downloads/) please make sure to select **Desktop development with C++** while installing.
 - [CMake](https://cmake.org/download/)
 - [Git](https://git-scm.com/downloads)
 - optional [GitHub Desktop](https://desktop.github.com/)
