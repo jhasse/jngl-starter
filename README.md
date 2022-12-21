@@ -27,3 +27,17 @@ Steps to build your first JNGL Game:
 - In the solution explorer in Visual Studio you have to right click `jnglexample` and select `Set as Startup Project`.
 - Now you can press Debug or <kbd>F5</kbd> to run your project.
 - Have fun!
+
+## iOS Development with Xcode
+
+- Install Boost using [Homebrew](https://brew.sh/index_de): `brew install boost`
+- Run the following in the project folder after using this template:
+
+```
+mkdir subprojects/jngl/include/ios
+ln -s /opt/homebrew/include/boost subprojects/jngl/include/ios/boost
+cmake -Bbuild-ios -GXcode -DCMAKE_TOOLCHAIN_FILE=subprojects/jngl/cmake/iOS.toolchain.cmake -DIOS_PLATFORM=OS
+```
+
+- Open `jnglexample.xcodeproj` inside the newly created `build-ios/` folder.
+- Connect an iOS device, select the "jnglexample" target and hit run.
