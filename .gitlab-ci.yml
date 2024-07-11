@@ -29,27 +29,17 @@ windows:
 
 web:
   stage: build
-  image: emscripten/emsdk
+  image: emscripten/emsdk:3.1.20
   script:
-    - sudo apt remove --purge --auto-remove cmake -y
-    - sudo apt update -y
-    - sudo apt upgrade -y
-    - sudo apt install libvorbis-dev libogg-dev -y
-    - version=3.19
-    - build=1
-    - wget --quiet https://cmake.org/files/v$version/cmake-$version.$build-Linux-x86_64.sh
-    - sudo mkdir /opt/cmake
-    - sudo sh cmake-$version.$build-Linux-x86_64.sh --prefix=/opt/cmake --skip-license
-    - sudo ln -s /opt/cmake/bin/cmake /usr/local/bin/cmake
-    - mkdir build
-    - cp -r data build/data
-    - cd build
-    - emcmake cmake -DJNGL_VIDEO=0 -DCMAKE_BUILD_TYPE=Release .. && make jnglexample
+    - apt-get update && apt-get install -y ninja-build
+    - emcmake cmake -GNinja -Bbuild-web -DCMAKE_BUILD_TYPE=Release -DJNGL_VIDEO=0
+    - cp -r data build-web/data
+    - ninja -Cbuild-web
 
     - rm -r CMakeFiles CMakeCache.txt Makefile _deps cmake_install.cmake include subprojects
   artifacts:
     paths:
-      - build/
+      - build-web/
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
