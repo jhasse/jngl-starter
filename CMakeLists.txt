@@ -30,13 +30,11 @@ FetchContent_Declare(fmt
 	URL_HASH SHA256=b4a16b38fa171f15dbfb958b02da9bbef2c482debadf64ac81ec61b5ac422440)
 FetchContent_MakeAvailable(fmt)
 
-FetchContent_Declare(cereal
-	GIT_REPOSITORY https://github.com/USCiLab/cereal.git
-	GIT_TAG 64f50dbd5cecdaba785217e2b0aeea3a4f1cdfab)
-set(SKIP_PERFORMANCE_COMPARISON ON CACHE BOOL "Skip building performance comparison (requires boost)" FORCE)
-set(SKIP_PORTABILITY_TEST ON CACHE BOOL "Skip portability (32 bit) tests" FORCE)
-set(WITH_WERROR OFF CACHE BOOL "Compile with '-Werror' C++ compiler flag" FORCE)
-FetchContent_MakeAvailable(cereal)
+CPMAddPackage(
+	NAME cereal
+	URL https://github.com/USCiLab/cereal/archive/refs/tags/v1.3.2.tar.gz
+	OPTIONS "SKIP_PORTABILITY_TEST ON" "JUST_INSTALL_CEREAL ON"
+)
 
 set(jnglexample_SANITIZE_ADDRESS_DEFAULT ON)
 if ("${CMAKE_SYSTEM_NAME}" STREQUAL "Windows" OR ANDROID OR CMAKE_BUILD_TYPE MATCHES "Release")
