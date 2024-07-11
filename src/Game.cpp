@@ -30,6 +30,9 @@ void Game::draw() const {
 	for (const auto& gameObject : gameObjects) {
 		gameObject->draw();
 	}
+
+	jngl::setColor(0xff7fff_rgb);
+	jngl::drawTriangle({-200, 100}, {0, -140}, {200, 100});
 }
 
 bool Game::hasEnded() const {
