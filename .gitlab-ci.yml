@@ -3,7 +3,7 @@ image: registry.fedoraproject.org/fedora-minimal:36
 linux:
   stage: build
   script:
-    - microdnf install -y git clang fontconfig-devel freetype-devel libvorbis-devel libepoxy-devel libwebp-devel boost-python3-devel python3-devel cmake ninja-build SDL2-devel openal-soft-devel clang-tools-extra python3-PyYAML libcxx-devel libasan libatomic >/dev/null
+    - microdnf install -y git clang fontconfig-devel freetype-devel libvorbis-devel libwebp-devel boost-python3-devel python3-devel cmake ninja-build SDL2-devel clang-tools-extra python3-PyYAML libcxx-devel libasan libatomic >/dev/null
     - cmake -GNinja -Bbuild-linux
     - cd build-linux
     - TERM=xterm script -qfec "ninja jnglexample" /dev/null
@@ -15,7 +15,7 @@ linux:
 windows:
   stage: build
   script:
-    - microdnf install -y cmake ninja-build mingw32-pkg-config mingw32-libvorbis mingw32-SDL2 mingw32-fontconfig mingw32-libwebp mingw32-boost mingw32-dlfcn mingw32-libepoxy mingw32-openal-soft mingw32-nsis git >/dev/null
+    - microdnf install -y cmake ninja-build mingw32-pkg-config mingw32-libvorbis mingw32-SDL2 mingw32-fontconfig mingw32-libwebp mingw32-boost mingw32-dlfcn mingw32-nsis git >/dev/null
     - mingw32-cmake -Bbuild-windows -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=0
     - ninja -Cbuild-windows jnglexample.exe
     - makensis windows/installer.nsi
