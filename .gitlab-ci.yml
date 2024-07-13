@@ -15,13 +15,9 @@ linux:
 windows:
   stage: build
   script:
-    - microdnf install -y cmake ninja-build mingw32-pkg-config mingw32-libvorbis mingw32-SDL2 mingw32-fontconfig mingw32-libwebp mingw32-boost mingw32-dlfcn mingw32-nsis git >/dev/null
+    - microdnf install -y cmake ninja-build mingw32-pkg-config mingw32-libvorbis mingw32-SDL2 mingw32-fontconfig mingw32-libwebp mingw32-boost mingw32-dlfcn git >/dev/null
     - mingw32-cmake -Bbuild-windows -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=0
     - ninja -Cbuild-windows jnglexample.exe
-    - makensis windows/installer.nsi
-  artifacts:
-    paths:
-      - Project Schranke Setup.exe
 
 
 web:
