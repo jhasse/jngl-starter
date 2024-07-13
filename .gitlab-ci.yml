@@ -27,9 +27,10 @@ web:
     - apt-get update && apt-get install -y ninja-build
     - emcmake cmake -GNinja -Bbuild-web -DCMAKE_BUILD_TYPE=Release -DJNGL_VIDEO=0
     - cp -r data build-web/data
-    - ninja -Cbuild-web
+    - cd build-web
+    - ninja
 
-    - rm -r CMakeFiles CMakeCache.txt Makefile _deps cmake_install.cmake include subprojects
+    - rm -r CMakeFiles CMakeCache.txt build.ninja _deps cmake_install.cmake include subprojects
   artifacts:
     paths:
       - build-web/
