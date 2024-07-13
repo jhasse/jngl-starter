@@ -44,7 +44,7 @@ pages:
   dependencies:
     - web
   script:
-  - cp -r build public
+  - cp -r build-web public
   artifacts:
     paths:
     - public
