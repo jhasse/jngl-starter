@@ -31,7 +31,7 @@ void Game::draw() const {
 		gameObject->draw();
 	}
 
-	jngl::setColor(0xff7fff_rgb);
+	jngl::setColor(0xE30B5C_rgb);
 	jngl::drawTriangle({-200, 100}, {0, -140}, {200, 100});
 }
 
