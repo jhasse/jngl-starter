@@ -2,19 +2,22 @@
 	"version": "2.0.0",
 	"windows": {
 		"command": "C:\\msys64\\usr\\bin\\bash.exe",
-		"args": ["-lc", "([ -f build/Makefile ] || (mkdir build && cd build && cmake -G'MSYS Makefiles' -DCMAKE_BUILD_TYPE=Debug .. && cd ..)) && cd build && make -j8"]
+		"args": [
+			"-lc",
+			"([ -f build/build.ninja ] || (rm -rf build && mkdir build && cd build && cmake -G\"Ninja Multi-Config\" .. && cd ..)) && cd build && cmake --build ."
+		]
 	},
 	"linux": {
 		"args": [
 			"-lc",
-			"cd \"\"${workspaceRoot}\"\" && ([ -d build ] || (mkdir build && cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug ..)) && (if command -v ja >/dev/null 2>&1; then ja; else cmake --build build; fi) && $@"
+			"cd \"\"${workspaceRoot}\"\" && ([ -d build ] || cmake -Bbuild -G\"Ninja Multi-Config\" -DCMAKE_EXPORT_COMPILE_COMMANDS=1) && cmake --build build && $@"
 		],
 		"command": "/bin/bash"
 	},
 	"osx": {
 		"args": [
 			"-lc",
-			"cd \"\"${workspaceRoot}\"\" && ([ -d build ] || (mkdir build && cd build && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Debug ..)) && (if command -v ja >/dev/null 2>&1; then ja; else cmake --build build; fi) && $@"
+			"cd \"\"${workspaceRoot}\"\" && ([ -d build ] || cmake -Bbuild -G\"Ninja Multi-Config\" -DCMAKE_EXPORT_COMPILE_COMMANDS=1) && cmake --build build && $@"
 		],
 		"command": "/bin/bash"
 	},
