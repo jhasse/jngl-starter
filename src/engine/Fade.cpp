@@ -23,9 +23,8 @@ void Fade::draw() const {
 	} else {
 		work_->draw();
 	}
-	const int alpha = static_cast<int>(fadeCount_ > maxAlpha ? 2 * maxAlpha - fadeCount_ : fadeCount_);
-	jngl::setColor(0xff, 0xff, 0xff, alpha);
-	jngl::drawRect(-jngl::getScreenWidth() / 2, -jngl::getScreenHeight() / 2,
-	               jngl::getScreenWidth(), jngl::getScreenHeight());
-	jngl::setColor(255, 255, 255, 255);
+	const int alpha =
+	    static_cast<int>(fadeCount_ > maxAlpha ? 2 * maxAlpha - fadeCount_ : fadeCount_);
+	jngl::drawSquare(jngl::modelview().scale(jngl::getScreenSize()),
+	                 jngl::Rgba::u8(255, 255, 255, alpha));
 }
